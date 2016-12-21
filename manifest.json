@@ -1,0 +1,40 @@
+{
+  "name": "Medium At Night",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "This extension tune single medium article pages for better reading at night.",
+  "homepage_url": "http://theitoons.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "permissions": [
+    "contentSettings",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://medium.com/*/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://medium.com/*/*"
+      ],
+      "js": [
+        "js/jquery/jquery.js",
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
